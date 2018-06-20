@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <title>Expanse 2.0</title>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="jquery-3.3.1.min.js" ></script>
+        <script src="parallax.min.js" ></script>
+        <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+        <style type="text/css">
+            body,html {
+                background-color: lightgray;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                line-height: 1.8em;
+            }
+            .navbar {
+                overflow: hidden;
+                background-color: white;
+                font-family: 'Gugi',cursive,sans-serif;
+            }
+
+            .navbar a {
+                float: right
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            .dropdown {
+                float: right;
+                overflow: hidden;
+            }
+
+            .dropdown .dropbtn {
+                font-size: 18px;    
+                border: none;
+                outline: none;
+                color: black;
+                padding: 27px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: rgba(0,89,179,0.9);
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            
+            #logo {
+                float: left;
+                width: 60px;
+                height: 60px;
+                margin: 10px 10px 10px 600px;
+            }
+            .Circle {
+                float: right;
+                margin-top: 26px;
+                margin-right: 10px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: rgba(50,224,198,1);
+            }
+            #signUp {
+                margin-right: 26px;
+            }
+            .topPart {
+                padding: 250px;
+                background: transparent;
+            }
+            #topText {
+                z-index: 2;
+                position: relative;
+                color: antiquewhite;
+                font-family: 'Gugi',cursive;
+                font-size: 200%;
+                margin-left: 220px;
+                
+            }
+            .midPart {
+                background-color: #242424;
+                width: 100%;
+                height: 500px;
+                z-index: 2;
+            }
+            .midText {
+                float: left;
+                font-size: 150%;
+                font-family: 'Titillium Web', sans-serif;
+                padding: 50px;
+                color: white;
+                
+            }
+            .midText2 {
+                float:right;
+                font-size: 150%;
+                font-family: 'Titillium Web', sans-serif;
+                padding: 50px;
+                color: white;
+            }
+            .bottomPart {
+                padding: 150px;
+                background: transparent;
+            }
+            #bottomText {
+                z-index: 2;
+                position: relative;
+                color: antiquewhite;
+                font-family: 'Titillium Web', sans-serif;
+                font-size: 200%;
+                margin-left: 220px;
+                
+            }
+            .contact {
+                background-color: #F7F7F7;
+                width: 100%;
+                height: 300px;
+                z-index: 2;
+            }
+            .contactText {
+                float: left;
+                color: black;
+                font-size: 120%;
+            }
+            .contactText ul {
+                list-style: none;
+            }
+            .social {
+                float: right;
+                color: black;
+                font-size: 120%;
+            }
+            .social ul {
+                list-style: none;
+            }
+            .social ul li {
+                float: left;
+                padding-right: 10px;
+            }
+            .input {
+                padding-left: 500px;
+                clear: both;
+            }
+            
+        
+        </style>
+    
+    </head>
+    
+    <body>
+        
+        <div class="navbar">
+            <div ><img src=120.png id="logo"></div>
+            <div class="Circle" id="home"><span style="padding-left: 10px;">H</span></div>
+            <div class="dropdown">
+                <button class="dropbtn">Products 
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Backpack</a>
+                  <a href="#">More</a>
+                </div>
+            </div> 
+        </div>
+        <div class="topPart" data-parallax="scroll" data-z-index="1" data-image-src="0b1e69ca63199afcb690ecf29ad6bcb9.jpg">
+            <span id="topText">Expanse Technologies</span>
+            
+        </div>
+        <div class="midPart">
+            <div class="midText">
+                <span>This Backpack Features some cool shit such as </span>
+                <ul>
+                    <li>Fully Illuminated inside</li>
+                    <li>GPS Location tracking via App and <br>Website support</li>
+                    <li>fully Professional looks</li>
+
+                </ul>
+            </div>
+            <div class="midText2">
+                <span>This Backpack features some more shit </span>
+                <ul>
+                    <li>Anti - Theft System</li>
+                    <li>Comfortably Spaced</li>
+                
+                </ul>
+            
+            </div>
+        
+        </div>
+        <div class="bottomPart" data-parallax="scroll" data-z-index="1" data-image-src="f00bba60dda14910d47d467083070202.jpg">
+            <span id="bottomText">Without change there is no innovation, creativity, or incentive for improvement.</span>
+        
+        </div>
+        <div class="contact">
+            <div class="contactText"><ul>
+                <li>Contact Us:</li>
+                <li>Email:  akshay.pro0311@gmail.com</li>
+                <li>Phone No:  8448959152</li>
+                
+                </ul>
+            
+            </div>
+            <div class="social">
+                <ul>
+                    <li>F</li>
+                    <li>T</li>
+                    <li>in</li>
+                    <li>P</li>
+                    <li>insta</li>
+                
+                
+                </ul>
+                
+                </div>
+            <div class="input">
+                <span id="ContactUs" style="color: black;font-size: 120%;">Have any query ?<br> </span> 
+                <input type="text" id="textin" style="width: 300px; height: 60px;border-radius: 10px;margin-top: 20px;">
+                <input type="button" id="send" value="Submit">
+            </div>
+            
+        
+        </div>
+    
+        <script type="text/javascript">
+            function pass_values(value1) {
+
+                            $.ajax(
+                            {
+                                data : {
+                                    value : value1
+                                },
+                                type:'POST',
+                                url:'http://127.0.0.1:5000/pass_val'
+                                
+                            }
+                        );
+            }
+            $("#send").click(function(){
+                if($("#textin").val()=='')
+                    {alert("enter value my nigga");}
+                else{
+                    var d1 = $("#textin").val();
+                    pass_values(d1);
+                    alert("submitted successfully");
+                }
+            });        
+        </script>
+    
+    </body>
+
+
+</html>
