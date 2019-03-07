@@ -1,283 +1,686 @@
 <!DOCTYPE html>
 <html>
-    <title>Expanse 2.0</title>
+    <title>Expanse</title>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
         <script src="jquery-3.3.1.min.js" ></script>
-        <script src="parallax.min.js" ></script>
-        <link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+        <script src="ScrollMagic.min.js" ></script>
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani|Titillium+Web" rel="stylesheet">
+        
         <style type="text/css">
             body,html {
-                background-color: lightgray;
                 width: 100%;
                 height: 100%;
                 margin: 0;
                 padding: 0;
                 line-height: 1.8em;
             }
-            .navbar {
+            .topPart{
+                position: fixed;
                 overflow: hidden;
-                background-color: white;
-                font-family: 'Gugi',cursive,sans-serif;
-            }
-
-            .navbar a {
-                float: right
-                font-size: 16px;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-            .dropdown {
-                float: right;
-                overflow: hidden;
-            }
-
-            .dropdown .dropbtn {
-                font-size: 18px;    
-                border: none;
-                outline: none;
-                color: black;
-                padding: 27px 16px;
-                background-color: inherit;
-                font-family: inherit;
-                margin: 0;
-            }
-
-            .navbar a:hover, .dropdown:hover .dropbtn {
-                background-color: rgba(0,89,179,0.9);
-            }
-
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                background-color: #f9f9f9;
-                min-width: 160px;
-                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
                 z-index: 1;
+                
             }
-
-            .dropdown-content a {
-                float: none;
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-                text-align: left;
+            #vid-wrap{
+                position: fixed;
+                top: 0;
+                left: 0;
+                min-height: 100%;
+                min-width: 100%;
             }
-
-            .dropdown-content a:hover {
-                background-color: #ddd;
+            .topText {
+                position: fixed;
+                background-color: rgba(4,45,72,0.7);
+                width: 100%;
+                min-height: 100%;
+                z-index: 2;
+                font-family: 'Rajdhani', sans-serif;
             }
-
-            .dropdown:hover .dropdown-content {
-                display: block;
+            .topText h1{
+                text-align: center;
+                font-size: 65px;
+                font-weight: 300;
+                text-transform: uppercase;
+                color: #fff;
+                padding-top: 3%;
+                margin-bottom: 10px;
             }
-            
-            #logo {
-                float: left;
-                width: 60px;
+            .topText p{
+                text-align: center;
+                font-size: 30px;
+                text-transform: uppercase;
+                color: #fff;
+                padding-top: 15%;
+                
+            }
+            .topBar {
+                position: absolute;
+                background-color: rgba(4,45,72,0.7);
+                width: 100%;
                 height: 60px;
-                margin: 10px 10px 10px 600px;
+                z-index: 6;
             }
-            .Circle {
-                float: right;
-                margin-top: 26px;
-                margin-right: 10px;
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                background-color: rgba(50,224,198,1);
-            }
-            #signUp {
-                margin-right: 26px;
-            }
-            .topPart {
-                padding: 250px;
-                background: transparent;
-            }
-            #topText {
-                z-index: 2;
-                position: relative;
-                color: antiquewhite;
-                font-family: 'Gugi',cursive;
-                font-size: 200%;
-                margin-left: 220px;
+            #logo{
+                width: 17.5%;
+                height: 46%;
+                min-width: 180px;
+                max-width: 260px;
+                margin-top: 17px;
+                margin-left: 6px;
                 
             }
-            .midPart {
-                background-color: #242424;
-                width: 100%;
-                height: 500px;
-                z-index: 2;
+            .topBar p{
+                position: absolute;
+                top: 0;
+                right: 0;
+                text-align: right;
+                padding-right: 50px;
+                font-size: 20px;
+                font-family: 'Rajdhani', sans-serif;
+                margin-top: 16px;
+                font-weight: 400;
             }
-            .midText {
-                float: left;
-                font-size: 150%;
-                font-family: 'Titillium Web', sans-serif;
-                padding: 50px;
+            #home {
+                padding-right: 150px;
+            }
+            .topBar a {
                 color: white;
-                
+                text-decoration: none;
             }
-            .midText2 {
-                float:right;
-                font-size: 150%;
-                font-family: 'Titillium Web', sans-serif;
-                padding: 50px;
-                color: white;
+            .topBar a:hover{
+                color: rgba(255,255,255,0.4)
             }
-            .bottomPart {
-                padding: 150px;
-                background: transparent;
+            .topBar a:visited {
+                text-decoration: none;
             }
-            #bottomText {
-                z-index: 2;
+            .botPart {
                 position: relative;
-                color: antiquewhite;
-                font-family: 'Titillium Web', sans-serif;
-                font-size: 200%;
-                margin-left: 220px;
+            }
+            #bot {
+                z-index: 4;
+                width: 100%;
+                height: auto;
+                position: absolute;
+                margin-top: 700px;
+            }
+            .topFade {
+                transition: 0.5s;
+                opacity: 1;
+            }
+            .fade {
+                transition: 0.5s;
+                opacity: 0;
+            }
+            #botText {
+                position: absolute;
+                z-index: 5;
+                text-align: center;
+                font-size: 40px;
+                font-weight: 700;
+                padding-left: 44%;
+                text-transform: uppercase;
+                color: rgba(4,45,72,1);
+                font-family: 'Rajdhani', sans-serif;
+                margin-top: 100%;
+                
                 
             }
-            .contact {
-                background-color: #F7F7F7;
-                width: 100%;
-                height: 300px;
-                z-index: 2;
+            #botText2 {
+                position: absolute;
+                z-index: 5;
+                text-align: center;
+                font-size: 20px;
+                margin-top: 107%;
+                padding-left: 6%;
+                padding-right: 6%;
+                
+                color: rgba(4,45,72,1);
+                font-family: 'Rajdhani', sans-serif;
+                
+                
             }
-            .contactText {
-                float: left;
-                color: black;
-                font-size: 120%;
+            .bot-text {
+                transition: 1s;
+                opacity: 0;
             }
-            .contactText ul {
-                list-style: none;
+            .bot-text2 {
+                transition: 1s;
+                opacity: 0;
             }
-            .social {
-                float: right;
-                color: black;
-                font-size: 120%;
+            .fade-in {
+                transition: 4s ease-in);
+                opacity: 1;
             }
-            .social ul {
-                list-style: none;
-            }
-            .social ul li {
-                float: left;
-                padding-right: 10px;
-            }
-            .input {
-                padding-left: 500px;
-                clear: both;
+            .fade-in2 {
+                transition: 4s;
+                opacity: 1;
             }
             
+            .subfield {
+                position: absolute;
+                z-index: 6;
+                float: left;
+                font-size: 20px;
+                margin-top: 122%;
+                margin-left: 38%;
+                margin-right: auto;
+                
+            }
+            #emailInput {
+                width: 220px;
+                height: 26px;
+                
+            }
+            #inputSubmit {
+                background-color: rgba(4,45,72,1);
+                color: white;
+                width: 80px;
+                height: 30px;
+                border: none;
+                text-decoration: none;
+                text-align: center;
+                font-size: 17px;
+                font-family: 'Rajdhani', sans-serif;
+                
+            }
+            #st {
+                color: darkslategray;
+                font-family: 'Rajdhani', sans-serif;
+                opacity: 1;
+    
+            }
+            #inputSubmit:hover {
+                opacity: 0.8;
+            }
+            .iconBar {
+                position: absolute;
+                z-index: 5;
+                float: left;
+                padding-top: 130%;
+                padding-left: 30px;
+                margin-left: 40%;
+            }
+            .iconBar a:hover {
+                opacity: 0.7;
+            }
+            .iconBarEffect{
+                animation: fadeandscale .60s cubic-bezier(0,1.07,.72,1.42);
+                transform-origin: center bottom;
+            }
+            
+            @keyframes fadeandscale {
+                from {
+                    opacity: 0;
+                    transform: scale3d(.20,.20,1);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale3d(1,1,1);
+                }
+            }
+            #fb {
+                width: 15px;
+                height: 28px;
+            }
+                
+                
+            #ig {
+                padding-left: 20px;
+                width: 25px;
+                height: 25px;
+                
+            }
+            #li {
+                padding-left: 20px;
+                width: 25px;
+                height: 25px;
+                
+            }
+            #tw {
+                padding-left: 20px;
+                width: 28px;
+                height: 25px;
+                
+            }
+            @media only screen and (min-width: 1800px) {
+                .subfield {
+                    margin-left: 38%;
+                }
+            }
+            @media only screen and (max-width: 1220px) {
+                .subfield {
+                    margin-top: 130%;
+                }
+                .iconBar {
+                    padding-top: 140%;
+                }
+            }
+            @media only screen and (max-width: 1024px) {
+                .subfield {
+                    margin-top: 130%;
+                }
+                .iconBar {
+                    padding-top: 140%;
+                }
+            }
+            @media only screen and (max-width: 860px) {
+                .subfield {
+                    margin-top: 148%;
+                    margin-left: 34%;
+                }
+                .iconBar {
+                    padding-top: 160%;
+                }
+                #botText {
+                    margin-top: 110%;
+                }
+                #botText2 {
+                    margin-top: 117%;
+                }
+            }
+            @media only screen and (max-width: 768px) {
+                .subfield {
+                    margin-top: 158%;
+                    margin-left: 32%;
+                }
+                .iconBar {
+                    padding-top: 168%;
+                }
+                #botText {
+                    margin-top: 118%;
+                }
+                #botText2 {
+                    margin-top: 125%;
+                }
+                
+            }
+            
+            @media only screen and (max-width: 680px) {
+                .subfield {
+                    margin-top: 174%;
+                    margin-left: 30%;
+                }
+                .iconBar {
+                    padding-top: 184%;
+                    margin-left: 34%;
+                }
+                #botText {
+                    margin-top: 128%;
+                    padding-left: 40%;
+                }
+                #botText2 {
+                    margin-top: 138%;
+                    font-size: 18px;
+                }
+            }
+            @media only screen and (max-width: 614px) {
+                .subfield {
+                    margin-top: 198%;
+                    margin-left: 28%;
+                }
+                .iconBar {
+                    padding-top: 206%;
+                    margin-left: 34%;
+                }
+                #botText {
+                    margin-top: 146%;
+                    padding-left: 40%;
+                    font-size: 32px;
+                }
+                #botText2 {
+                    margin-top: 158%;
+                    font-size: 16px;
+                }
+                .topText h1{
+                    font-size: 65px;
+                    font-weight: 300;
+                    padding-top: 3%;
+                    margin-bottom: 10px;
+                }
+                .topText p{
+                    font-size: 30px;
+                    padding-top: 24%;
+                
+                }
+            }
+            @media only screen and (max-width: 548px) {
+                .subfield {
+                    margin-top: 210%;
+                    margin-left: 26%;
+                }
+                .iconBar {
+                    padding-top: 218%;
+                    margin-left: 30%;
+                }
+                #botText {
+                    margin-top: 150%;
+                    padding-left: 38%;
+                    font-size: 32px;
+                }
+                #botText2 {
+                    margin-top: 164%;
+                    font-size: 14px;
+                }
+                .topText h1{
+                    font-size: 55px;
+                    font-weight: 260;
+                    padding-top: 3%;
+                    margin-bottom: 10px;
+                }
+                .topText p{
+                    font-size: 28px;
+                    padding-top: 28%;
+                
+                }
+                #emailInput {
+                    width: 180px;
+                    height: 20px;
+                }
+                #inputSubmit {
+                    width: 70px;
+                    height: 24px;
+                    font-size: 14px;
+                }
+                #fb {
+                    width: 12px;
+                    height: 25px;
+                }
+
+
+                #ig {
+                    padding-left: 18px;
+                    width: 22px;
+                    height: 22px;
+
+                }
+                #li {
+                    padding-left: 28px;
+                    width: 22px;
+                    height: 22px;
+
+                }
+                #tw {
+                    padding-left: 18px;
+                    width: 25px;
+                    height: 22px;
+
+                }
+            }
+            
+            
+             /*iphone 5/5c/5s/se */
+            @media only screen 
+                  and (min-device-width: 320px) 
+                  and (max-device-width: 568px)
+                  and (-webkit-min-device-pixel-ratio: 2)
+                  and (orientation: portrait) {
+                      #logo {
+                          min-width: 100px;
+                          width: 120px;
+                          height: 40%;
+                      }
+                      .topBar p{
+                      padding-right: 15px;
+                  }
+                  #home {
+                      padding-right: 110px;
+                  }
+                    #bot {
+                      margin-top: 500px;
+                      height: 570px;
+                  }
+                  .subfield {
+                      margin-top: 296%;
+                      margin-left: 20%;
+                  }
+                  .iconBar {
+                    padding-top: 312%;
+                    margin-left: 20%;
+                }
+                #botText {
+                    margin-top: 170%;
+                    padding-left: 34%;
+                    font-size: 32px;
+                }
+                #botText2 {
+                    margin-top: 192%;
+                    font-size: 14px;
+                }
+                #emailInput {
+                    width: 140px;
+                    height: 16px;
+                }
+                #inputSubmit {
+                    width: 60px;
+                    height: 20px;
+                    font-size: 12px;
+                }
+                #fb {
+                    width: 10px;
+                    height: 23px;
+                }
+
+
+                #ig {
+                    padding-left: 16px;
+                    width: 20px;
+                    height: 20px;
+
+                }
+                #li {
+                    padding-left: 16px;
+                    width: 20px;
+                    height: 20px;
+
+                }
+                #tw {
+                    padding-left: 16px;
+                    width: 23px;
+                    height: 20px;
+
+                }
+                }
+           
+            
+            /*iphone 6/7/8 */
+            @media only screen 
+              and (min-device-width: 375px) 
+              and (max-device-width: 667px) 
+              and (-webkit-min-device-pixel-ratio: 2)
+              and (orientation: portrait) { 
+                  
+                  #bot {
+                      margin-top: 500px;
+                      height: 500px;
+                  }
+                  .subfield {
+                      margin-top: 240%;
+                      margin-left: 20%;
+                  }
+                  .iconBar {
+                    padding-top: 250%;
+                    margin-left: 22%;
+                }
+                #botText {
+                    margin-top: 150%;
+                    padding-left: 34%;
+                    font-size: 32px;
+                }
+                #botText2 {
+                    margin-top: 164%;
+                    font-size: 14px;
+                }
+                  #emailInput {
+                    width: 160px;
+                    height: 18px;
+                }
+                #inputSubmit {
+                    width: 60px;
+                    height: 22px;
+                    font-size: 12px;
+                }
+                #fb {
+                    width: 10px;
+                    height: 23px;
+                }
+
+
+                #ig {
+                    padding-left: 16px;
+                    width: 20px;
+                    height: 20px;
+
+                }
+                #li {
+                    padding-left: 16px;
+                    width: 20px;
+                    height: 20px;
+
+                }
+                #tw {
+                    padding-left: 16px;
+                    width: 23px;
+                    height: 20px;
+
+                }
+                  #logo {
+                      width: 17.5%;
+                      height: 40%;
+                      min-width: 140px;
+                  }
+                  .topBar p{
+                      padding-right: 30px;
+                  }
+                  #home {
+                      padding-right: 125px;
+                  }
+
+                }
+            /*iphone 6/7/8 +models */
+            @media only screen 
+                  and (min-device-width: 414px) 
+                  and (max-device-width: 736px) 
+                  and (-webkit-min-device-pixel-ratio: 3)
+                  and (orientation: portrait) { 
+                      #bot {
+                          margin-top: 520px;
+                          height: 550px;
+                      }
+                      .subfield {
+                          margin-top: 230%;
+                          margin-left: 26%;
+                      }
+                      .iconBar {
+                          padding-top: 240%;
+                          margin-left: 26%;
+                      }
+
+                }
+            
+            
+             @media only screen and (min-width: 360px) and (max-width: 767px) 
+            {
+                #bot {
+                    margin-top: 600px;
+                }
+            
+            }
+            @media only screen 
+                  and (min-device-width: 320px) 
+                  and (max-device-width: 568px)
+                  and (-webkit-min-device-pixel-ratio: 2)
+                  and (orientation: landscape) {
+                      #bot {
+                          margin-top: 640px;
+                      }
+
+                }
+           
+                
         
         </style>
-    
+        
     </head>
-    
     <body>
-        
-        <div class="navbar">
-            <div ><img src=120.png id="logo"></div>
-            <div class="Circle" id="home"><span style="padding-left: 10px;">H</span></div>
-            <div class="dropdown">
-                <button class="dropbtn">Products 
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                  <a href="#">Backpack</a>
-                  <a href="#">More</a>
-                </div>
-            </div> 
+        <div class="topBar">
+        <a href="#home" id="logo"><img id="logo" src="logosPNG/LogoNOBGcroppedPNG.png"></a>
+            <p id="home"><a href="#home">Home</a></p>
+            <p><a href="#inputSubmit">Subscribe</a></p>
         </div>
-        <div class="topPart" data-parallax="scroll" data-z-index="1" data-image-src="0b1e69ca63199afcb690ecf29ad6bcb9.jpg">
-            <span id="topText">Expanse Technologies</span>
+        <div class="topPart">
+        <video id="vid-wrap" preload="auto" autoplay = "true" loop = "loop" muted = "muted">
+            <source src="Video%20Footage%20Of%20City.mp4" type="video/mp4">
+            Video not Loaded
+            </video>
+        </div>
+        <div class="topText">
+            <p class="topFade">Our New Site is </p>
+            <h1 class="topFade">Coming Soon</h1>
+        </div>
+        <div class="botPart">
+            <span class="bot-text2" id="botText">About Us</span>
+            <span class="bot-text" id="botText2">Expanse is a private technology company headquartered in Noida, India that designs and develops consumer electronics and computer software.<br><br>  Here at Expanse, we have a common vision of making India's most innovative technology company of all time. We aim to make affordable goods which are useful in making daily life easier and more efficient. We also aim to make a trustworthy relationship with our consumers.</span>
             
-        </div>
-        <div class="midPart">
-            <div class="midText">
-                <span>This Backpack Features some cool shit such as </span>
-                <ul>
-                    <li>Fully Illuminated inside</li>
-                    <li>GPS Location tracking via App and <br>Website support</li>
-                    <li>fully Professional looks</li>
-
-                </ul>
-            </div>
-            <div class="midText2">
-                <span>This Backpack features some more shit </span>
-                <ul>
-                    <li>Anti - Theft System</li>
-                    <li>Comfortably Spaced</li>
-                
-                </ul>
+            <form class="subfield">
+                <input type="text" id="emailInput" name="email" type='email' placeholder="Enter Your Email here" required>
+                <input type="submit" id="inputSubmit" value="Subscribe">
+                <span id="st">Your Subscription is active</span>
             
-            </div>
-        
-        </div>
-        <div class="bottomPart" data-parallax="scroll" data-z-index="1" data-image-src="f00bba60dda14910d47d467083070202.jpg">
-            <span id="bottomText">Without change there is no innovation, creativity, or incentive for improvement.</span>
-        
-        </div>
-        <div class="contact">
-            <div class="contactText"><ul>
-                <li>Contact Us:</li>
-                <li>Email:  akshay.pro0311@gmail.com</li>
-                <li>Phone No:  8448959152</li>
-                
-                </ul>
+            </form>
             
+            <div class="iconBar">
+                <a href="https://www.facebook.com/expanseelectronics/" target="_blank"><img src="logosPNG/fbLogo%20-%20Copy.png" id="fb"></a>
+                <a href="https://www.instagram.com/expanseelectronics/" target="_blank"><img src="logosPNG/ig.png" id="ig"></a>
+                <a href="https://www.linkedin.com/company/expanseelectronics/" target="_blank"><img src="logosPNG/li.png" id="li"></a>
+                <a href="https://twitter.com/Expanse69214595" target="_blank"><img src="logosPNG/tw.png" id="tw"></a>
             </div>
-            <div class="social">
-                <ul>
-                    <li>F</li>
-                    <li>T</li>
-                    <li>in</li>
-                    <li>P</li>
-                    <li>insta</li>
-                
-                
-                </ul>
-                
-                </div>
-            <div class="input">
-                <span id="ContactUs" style="color: black;font-size: 120%;">Have any query ?<br> </span> 
-                <input type="text" id="textin" style="width: 300px; height: 60px;border-radius: 10px;margin-top: 20px;">
-                <input type="button" id="send" value="Submit">
-            </div>
-            
-        
+            <img src="1e47b2_5933ee74ead1423ea0746d23c30f1b4e_mv2.png" id = "bot">
         </div>
-    
-        <script type="text/javascript">
-            function pass_values(value1) {
-
-                            $.ajax(
-                            {
-                                data : {
-                                    value : value1
-                                },
-                                type:'POST',
-                                url:'http://127.0.0.1:5000/pass_val'
-                                
-                            }
-                        );
-            }
-            $("#send").click(function(){
-                if($("#textin").val()=='')
-                    {alert("enter value my nigga");}
-                else{
-                    var d1 = $("#textin").val();
-                    pass_values(d1);
-                    alert("submitted successfully");
-                }
-            });        
+        
+        
+    <script type="text/javascript">
+        var controller = new ScrollMagic.Controller();
+        
+        new ScrollMagic.Scene({triggerElement: "#bot"})
+        .setClassToggle(".topFade", "fade")
+        .addTo(controller);
+        
+        new ScrollMagic.Scene({triggerElement: "#bot"})
+        .setClassToggle(".bot-text2", "fade-in2")
+        .addTo(controller);
+        new ScrollMagic.Scene({triggerElement: "#botText"})
+        .setClassToggle(".bot-text", "fade-in")
+        .addTo(controller);
+        new ScrollMagic.Scene({triggerElement: "#botText"})
+        .setClassToggle(".iconBar", "iconBarEffect")
+        .addTo(controller);
+        
+        $(document).ready(function(){  
+      $('#inputSubmit').click(function(){ 
+          var email = $('#emailInput').val();
+                $.ajax({  
+                     url:"form_process.php",  
+                     method:"POST",  
+                     data:{email:email},  
+                     success:function(data){  
+                          $("form").trigger("reset");  
+                          $('#st').fadeIn().html(data);  
+                          setTimeout(function(){  
+                               $('#st').fadeOut("Slow");  
+                          }, 2000);  
+                     } 
+                });  
+             
+      });  
+ });  
+        
         </script>
-    
     </body>
-
-
+    
 </html>
+    
+    
